@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6shw11ncj7ro"]
+
+[ext_resource type="PackedScene" uid="uid://bopihrq75psdt" path="res://Scenes/slot.tscn" id="1_orl8w"]
+[ext_resource type="PackedScene" uid="uid://dmrho7sq58uhg" path="res://Scenes/tower.tscn" id="2_8xpg0"]
+[ext_resource type="Script" uid="uid://bd52a071o7fe1" path="res://Scenes/mouse.gd" id="3_gbc2j"]
+[ext_resource type="Texture2D" uid="uid://blwccgjylknwb" path="res://icon.svg" id="4_leqta"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kr5nf"]
+
+[node name="TestMap" type="Node2D"]
+
+[node name="Slot" parent="." instance=ExtResource("1_orl8w")]
+position = Vector2(382, 366)
+
+[node name="TowerIcon" parent="." instance=ExtResource("2_8xpg0")]
+position = Vector2(855, 300)
+
+[node name="mouse" type="Node2D" parent="."]
+script = ExtResource("3_gbc2j")
+
+[node name="Area2D" type="Area2D" parent="mouse"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mouse/Area2D"]
+shape = SubResource("CircleShape2D_kr5nf")
+
+[node name="Sprite2D" type="Sprite2D" parent="mouse"]
+texture = ExtResource("4_leqta")
