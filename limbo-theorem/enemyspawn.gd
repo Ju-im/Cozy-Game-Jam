@@ -13,37 +13,28 @@ var wave_complete := false
 
 var follower = preload("res://basicEnemy.tscn")
 
-func _ready() -> void:
-	# 🧹 REMOVE ANY PRE-EXISTING ENEMIES UNDER THIS NODE
-	for child in get_children():
-		child.queue_free()
-
 func _process(delta: float) -> void:
 	if wave_complete:
-		return
+		return  # ⛔ HARD STOP — nothing happens anymore
 
 	if spawning:
 		timer += delta
 
 		if timer >= spawnTime:
-			var enemy = follower.instantiate()
-			add_child(enemy)
-			timer = 0.0
+			if get_child_count() < max_enemy:
+				var enemy = follower.instantiate()
+				add_child(enemy)
+				timer = 0.0
 
-		# wave ends when limit reached
-		if get_enemy_count() >= max_enemy:
-			end_wave()
+			# 👇 END WAVE CONDITION
+			if get_child_count() >= max_enemy:
+				end_wave()
 
 	else:
 		wave_timer -= delta
 
 		if wave_timer <= 0:
 			start_wave()
-
-
-# 📊 SAFE enemy count (group-based, not children)
-func get_enemy_count() -> int:
-	return get_tree().get_nodes_in_group("enemies").size()
 
 
 func start_wave() -> void:
@@ -53,12 +44,13 @@ func start_wave() -> void:
 	wave_timer = wave_delay
 	timer = 0.0
 
-func _input(event):
-	if event.is_action_pressed("ui_accept"): # space by default
-		if not spawning:
-			start_wave()
 
 func end_wave() -> void:
 	spawning = false
 	wave_complete = true
 	
+	
+func _input(event):
+	if event.is_action_pressed("ui_accept"): # space by default
+		if not spawning:
+			start_wave()

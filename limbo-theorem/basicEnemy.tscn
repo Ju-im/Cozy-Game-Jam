@@ -1,23 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0cj34dcs5ace"]
+[gd_scene load_steps=3 format=3 uid="uid://c0cj34dcs5ace"]
 
 [ext_resource type="Script" uid="uid://dglim4gcbe2yf" path="res://PathCode.gd" id="1_x51mg"]
-[ext_resource type="Script" uid="uid://byowgm7mngcs4" path="res://enemy.gd" id="2_fphe5"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x51mg"]
-size = Vector2(46.4993, 61.3595)
+[ext_resource type="PackedScene" uid="uid://dql6xk0qqctyq" path="res://test1.tscn" id="2_fphe5"]
 
 [node name="PathFollow2D" type="PathFollow2D"]
+rotates = false
 script = ExtResource("1_x51mg")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(-38, -181)
-rotation = -0.0097823
-polygon = PackedVector2Array(15, 150, 16, 214, 62, 214, 60, 150)
-script = ExtResource("2_fphe5")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="Polygon2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Polygon2D/RigidBody2D"]
-position = Vector2(37.6735, 181.926)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_x51mg")
+[node name="RigidBody2D" parent="." instance=ExtResource("2_fphe5")]
