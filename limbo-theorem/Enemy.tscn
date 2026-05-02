@@ -20,18 +20,18 @@ curve = SubResource("Curve2D_s7bn3")
 script = ExtResource("1_s7bn3")
 
 [node name="ProgressBar" type="ProgressBar" parent="Path2D"]
-offset_left = 421.0
-offset_top = 90.5431
-offset_right = 722.0
-offset_bottom = 117.543
+offset_left = 428.0
+offset_top = 101.11
+offset_right = 729.0
+offset_bottom = 128.11
 script = ExtResource("3_2hac7")
 
 [node name="Timer" type="Label" parent="Path2D/ProgressBar"]
 layout_mode = 0
-offset_left = 377.0
-offset_top = -2.64162
-offset_right = 633.0
-offset_bottom = 51.3584
+offset_left = 357.0
+offset_top = -3.96246
+offset_right = 613.0
+offset_bottom = 50.0375
 script = ExtResource("3_e6d4v")
 
 [node name="PathFollow2D" parent="Path2D" instance=ExtResource("2_2hac7")]

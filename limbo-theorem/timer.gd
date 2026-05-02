@@ -1,6 +1,7 @@
 extends Label
 
-@onready var spawner = get_node("../../Path2D")
+@onready var spawner: Path2D = $"../.."
+
 
 func _process(delta: float) -> void:
 	if spawner.spawning:
