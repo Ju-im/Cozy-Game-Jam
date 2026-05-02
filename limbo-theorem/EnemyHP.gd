@@ -1,26 +1,33 @@
 extends Node2D
 
-const MAX_HEALTH = 5
-var health = MAX_HEALTH
+const MAX_HEALTH := 5
+var health := MAX_HEALTH
+
+@onready var health_bar = $HealthBar
+
+
 
 func _ready() -> void:
 	update_health_ui()
-	$HealthBar.max_value = MAX_HEALTH
+	health_bar.max_value = MAX_HEALTH
+	health = MAX_HEALTH
 
-func update_health_ui():
-	set_health_bar()
 
-func set_health_bar() -> void:
-	$HealthBar.value = health
+func update_health_ui() -> void:
+	health_bar.value = health
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_down"):
-		damage()
-		print("dmg")
-		
-		
+
+func _DmgSystem():
+	pass
+
 func damage() -> void:
 	health -= 1
-	if health < 0:
-		health = MAX_HEALTH
-		update_health_ui()
+	update_health_ui()
+
+	if health <= 0:
+		die()
+
+
+func die() -> void:
+	print("dead")
+	queue_free()

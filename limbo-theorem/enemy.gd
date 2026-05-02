@@ -1,4 +1,4 @@
 extends Polygon2D
 
-func despawn():
+func despawn():	
 	queue_free()

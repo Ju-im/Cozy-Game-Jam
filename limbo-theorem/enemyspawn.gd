@@ -10,7 +10,7 @@ var wave := 0
 var spawning := false
 var wave_timer := 5.0
 var wave_complete := false
-
+var enemy_killed=0
 var follower = preload("res://basicEnemy.tscn")
 
 func _process(delta: float) -> void:
@@ -25,10 +25,11 @@ func _process(delta: float) -> void:
 				var enemy = follower.instantiate()
 				add_child(enemy)
 				timer = 0.0
+				enemy_killed+=1
 
 			# 👇 END WAVE CONDITION
-			if get_child_count() >= max_enemy:
-				end_wave()
+		if enemy_killed >= max_enemy:
+			end_wave()
 
 	else:
 		wave_timer -= delta
@@ -54,3 +55,13 @@ func _input(event):
 	if event.is_action_pressed("ui_accept"): # space by default
 		if not spawning:
 			start_wave()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.
+
+
+func DamageSystem(body: Node2D) -> void:
+	get_tree().get_nodes_in_group("DamageSystem")
+	body.damage()
+	print("helo")
