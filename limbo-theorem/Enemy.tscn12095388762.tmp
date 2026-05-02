@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3ltrbl06nmgj"]
+
+[ext_resource type="Script" uid="uid://chuu2im2hg2ec" path="res://enemyspawn.gd" id="1_s7bn3"]
+[ext_resource type="PackedScene" uid="uid://c0cj34dcs5ace" path="res://basicEnemy.tscn" id="2_2hac7"]
+[ext_resource type="Script" uid="uid://3hrnp6rf83o6" path="res://progress_bar.gd" id="3_2hac7"]
+[ext_resource type="Script" uid="uid://ckoi8vtlohb2m" path="res://timer.gd" id="3_e6d4v"]
+
+[sub_resource type="Curve2D" id="Curve2D_s7bn3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 44, 162.527, 0, 0, 0, 0, 1054, 162.527, 0, 0, 0, 0, 1053, 315.081, 0, 0, 0, 0, 546, 313.1, 0, 0, 0, 0, 547, 248.38, 0, 0, 0, 0, 100, 247.72, 0, 0, 0, 0, 102, 385.745, 0, 0, 0, 0, 547, 385.745, 0, 0, 0, 0, 547, 453.106, 0, 0, 0, 0, 1048, 453.106, 0, 0, 0, 0, 1046, 378.48, 0, 0, 0, 0, 1139, 379.141)
+}
+point_count = 12
+
+[node name="EnemyAi" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(0, -94.1019)
+scale = Vector2(1, 1.51422)
+curve = SubResource("Curve2D_s7bn3")
+script = ExtResource("1_s7bn3")
+
+[node name="ProgressBar" type="ProgressBar" parent="Path2D"]
+offset_left = 414.0
+offset_top = 80.6369
+offset_right = 715.0
+offset_bottom = 107.637
+script = ExtResource("3_2hac7")
+
+[node name="Timer" type="Label" parent="Path2D/ProgressBar" node_paths=PackedStringArray("spawner")]
+layout_mode = 0
+offset_left = 377.0
+offset_top = -2.64162
+offset_right = 633.0
+offset_bottom = 51.3584
+script = ExtResource("3_e6d4v")
+spawner = NodePath("../..")
+
+[node name="PathFollow2D" parent="Path2D" instance=ExtResource("2_2hac7")]
+position = Vector2(44, 162.527)
