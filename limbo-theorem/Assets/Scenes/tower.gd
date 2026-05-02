@@ -5,6 +5,7 @@ var mouse_pos = null
 var in_area = false
 var following = false
 var can_move = true
+var icon = true
 enum class_types{
 	CANON,
 	BOW,
@@ -17,8 +18,6 @@ var tower_type ="CANON"
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
-func _input(event: InputEvent) -> void:
-	pass
 
 
 func _on_pick_up_area_mouse_entered() -> void:
