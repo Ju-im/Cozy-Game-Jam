@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bluamt1xr6v0f"
-path="res://.godot/imported/tileset_grass.png-3cf3c13fca76d54602745100adbc4dfa.ctex"
+path="res://.godot/imported/tileset_grass.png-cd8948297f0e20278eda72d9ab6ce27c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Ninjas And Demons (FREE VERSION)/Exported (usable)/Level/tileset_grass.png"
-dest_files=["res://.godot/imported/tileset_grass.png-3cf3c13fca76d54602745100adbc4dfa.ctex"]
+source_file="res://Assets/Scenes/tileset_grass.png"
+dest_files=["res://.godot/imported/tileset_grass.png-cd8948297f0e20278eda72d9ab6ce27c.ctex"]
 
 [params]
 

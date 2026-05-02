@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://c6shw11ncj7ro"]
 
-[ext_resource type="PackedScene" uid="uid://bopihrq75psdt" path="res://Scenes/slot.tscn" id="1_orl8w"]
-[ext_resource type="PackedScene" uid="uid://dmrho7sq58uhg" path="res://Scenes/tower.tscn" id="2_8xpg0"]
-[ext_resource type="Script" uid="uid://bd52a071o7fe1" path="res://Scenes/mouse.gd" id="3_gbc2j"]
-[ext_resource type="PackedScene" uid="uid://crgc4gvybo825" path="res://Scenes/spawner.tscn" id="4_leqta"]
+[ext_resource type="PackedScene" uid="uid://bopihrq75psdt" path="res://Assets/Scenes/slot.tscn" id="1_orl8w"]
+[ext_resource type="PackedScene" uid="uid://dmrho7sq58uhg" path="res://Assets/Scenes/tower.tscn" id="2_8xpg0"]
+[ext_resource type="Script" uid="uid://bd52a071o7fe1" path="res://Assets/Scenes/mouse.gd" id="3_gbc2j"]
+[ext_resource type="PackedScene" uid="uid://crgc4gvybo825" path="res://Assets/Scenes/spawner.tscn" id="4_leqta"]
 [ext_resource type="Script" uid="uid://cfp4uh8xc7o7y" path="res://Scripts/spawner.gd" id="5_kr5nf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kr5nf"]
