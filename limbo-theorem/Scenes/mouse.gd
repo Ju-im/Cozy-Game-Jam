@@ -13,6 +13,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	follow(delta)
 	mouse_pos = get_viewport().get_mouse_position()
 	global_position = mouse_pos
 	
@@ -25,3 +26,20 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_released() and following:
 		following = false
 		velocity=Vector2(0,0)
+
+func follow(delta:float):
+	
+	if following:
+		mouse_pos = get_viewport().get_mouse_position()
+		var distance = global_position.distance_to(mouse_pos)
+		if distance > 5:
+			var direction = global_position.direction_to(mouse_pos)
+			holding.velocity = direction  * speed* delta
+		else:
+			holding.velocity= Vector2.ZERO
+
+		
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	holding=area.get_parent()
+	
+	
