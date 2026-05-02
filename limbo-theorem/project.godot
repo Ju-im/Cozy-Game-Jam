@@ -14,3 +14,10 @@ config/name="Limbo Theorem"
 run/main_scene="uid://b3ltrbl06nmgj"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[layer_names]
+
+2d_physics/layer_1="world"
+2d_physics/layer_2="player"
+2d_physics/layer_3="slots"
+2d_physics/layer_4="tower"
